@@ -1,0 +1,115 @@
+@import "../../assets/scss/variables";
+
+.delivery{
+    position: relative;
+    &__inner{
+        padding: 70px 0;
+        position: relative;
+    }
+    &__header{
+        margin-bottom: 50px;
+    }
+    &__text {
+        color: #222222;
+    }
+    &__img{
+        width: 572px;
+        position: absolute;
+        background-size: 100% 100%;
+        background-image:url("../../assets/img/food 1.png") ;
+        top: 0;
+        right: 0;
+        height: 1517px;
+        margin: 0;
+        // background: url("../../assets/img/food 1.png")  no-repeat;
+
+    }
+    &__benefits{
+        display: flex;
+        gap: 30px;
+        margin-bottom: 70px;
+        &-item{
+            padding: 50px 20px;
+            background: #fff;
+            border-radius: 20px;
+            text-align: center;
+            flex: 1 1 450px;
+            svg{
+                margin-bottom: 30px;
+            }
+            &__text{
+                color: #222222;
+            }
+        }
+    }
+    
+}
+.delivery__zone__text{
+    margin-bottom: 50px;
+}
+.delivery__color-zones{
+    display: flex;
+    gap: 30px;
+
+    .--green{
+        background: #407A53;
+    }
+    .--blue{
+        background: #405B7A;
+    }
+    .--orange{
+        background: #E9722F;
+    }
+    &__caption{
+        color: #fff;
+        font-weight: $black;
+        padding: 24px 0;
+        font-size: 18px;
+        border-radius: 20px 20px 0 0;
+    }
+    &__item{
+        background: #fff;
+        border-radius: 20px;
+        text-align: center;
+        flex: 1 1 450px;
+    }
+    &__list{
+        
+        &__item{
+            padding: 20px 0;
+            &:not(:last-child){
+                border-bottom: 1px solid #E8EAEB;
+            }
+            &__title{
+                color: #818181;
+                font-size: 14px;
+                margin-bottom: 10px;
+            }
+            &__value{
+                margin: 0;
+                font-size: 18px;
+                font-weight: $heavy;
+            }
+        }
+    }
+}
+@media (max-width:1024px) {
+    .delivery {
+        &__benefits {
+            flex-direction: column;
+            align-items: center;
+            &-item {
+                max-width : 600px
+            }
+        }
+        &__color-zones {
+            flex-direction: column;
+            align-items: center;
+            &__item {
+                max-width: 600px;
+                max-height: 430px;
+                width: 100%;
+            }
+        }
+    }
+}

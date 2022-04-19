@@ -1,0 +1,115 @@
+@import "../../assets/scss/variables.scss";
+
+.index{
+    &__content{
+        padding-top: 70px;
+    }
+    section{
+        margin-bottom: 70px;
+    }
+    &__phone{
+        text-align: center;
+        border-radius: 10px;
+        background: $red;
+        padding: 10px 84px;
+        color: #fff;
+        font-weight: $black;
+        max-width: 690px;
+        margin: 0 auto;
+    }
+}
+.index__app{
+    display: flex;
+    padding: 60px 0;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(97.31deg, #FFD800 0%, #E41F2D 99.89%);
+    height: 627px;
+    width: 100%;
+    &__logo{
+        margin-bottom: 30px;
+        svg{
+            width: 323px;
+            height: 120px;
+        }
+    }
+    &__text{
+        font-size: 3.3rem;
+        color: #fff;
+        font-weight: $heavy;
+        max-width: 713px;
+        margin-bottom: 50px;
+    }
+    &__left{
+        background: url("../../assets/img/app.png") no-repeat;
+        height: 100%;
+        width: 779px;
+        margin-right: 123px;
+    }
+    &__right{
+        padding: 33px 0 55px;
+    }
+    &__items{
+        display: flex;
+        gap: 30px;
+    }
+}
+
+@media (max-width:1600px) {
+    .index__app {
+        &__left {
+            width: 600px;
+            background-position: center right;
+            
+            margin: 0;
+
+        }
+        &__right {
+            margin-left: auto;
+        }
+    }
+}
+@media (max-width:1200px) {
+    .index__app {
+        flex-direction: column-reverse;
+        align-items: center;
+        height: 100%;
+        text-align: center;
+        &__left {
+            width: 469px;
+            height: 507px;
+            background-position: center right;
+        }
+        &__right {
+            margin-left: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center ;
+        }
+    }
+}
+@media (max-width: 425px) {
+    .index__app {
+        padding: 0 10px;
+        &__items {
+            gap: 10px;
+            svg {
+                width: 165px;
+
+            }
+        }
+        &__left {
+            height: 359px;
+            width: 546px;
+            background-position: bottom center;
+            background-size: contain;
+            padding-right: 20px;
+            margin-right: 220px;
+            margin-bottom: 34px;
+        }
+    }
+    .index__phone {
+        font-size: 14px;
+        padding: 12px;
+    }
+}

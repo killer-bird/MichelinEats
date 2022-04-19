@@ -1,0 +1,19 @@
+@import "../../assets/scss/variables.scss";
+
+.profile-logout-btn {
+    padding: 15px;
+    border-radius: 6px;
+    border: transparent;
+    background: #FAEAEA;
+    max-width: 118px;
+    max-height: 55px;
+    color: $red;
+    display: flex;
+    align-items: center;
+    svg{margin-right: 12px;}
+    cursor: pointer;
+    transition: .3s;
+    &:hover {
+        background: #ffd8d8;
+    }
+}

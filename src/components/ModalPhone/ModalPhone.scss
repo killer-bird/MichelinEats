@@ -1,0 +1,12 @@
+@import "../../assets/scss/variables";
+
+.modal-phone{
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    &__content{
+        margin-bottom: 20px;
+    }
+}

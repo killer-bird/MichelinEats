@@ -1,0 +1,61 @@
+@import "../../assets/scss/variables.scss";
+
+.radio-icon {
+    display: block;
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    width: 136px;
+    height: 166px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    &__checkmark{
+        position: absolute;
+        top: -2px;
+        left: 0;
+        height: 100%;
+        background-color: #fff;
+        border-radius: 8px;
+        padding: 20px 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    &__icon {
+        margin-bottom: 10px;
+        svg {
+            font-size: 0;
+        }
+    }
+    &__text {
+        max-width: 114px;
+        font-size: 14px;
+        font-weight: $bold;
+        letter-spacing: 6%;
+    }
+}
+.radio-icon input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+
+.radio-icon__checkmark::after {
+    content: "";
+    position: absolute;
+    display: none;
+    
+}
+
+.radio-icon input:checked ~.radio-icon__checkmark::after {
+    display: block;   
+}
+.radio-icon input:checked ~.radio-icon__checkmark {
+    outline: 2px solid $red;
+}
+

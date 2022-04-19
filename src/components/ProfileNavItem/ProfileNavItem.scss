@@ -1,0 +1,30 @@
+@import "../../assets/scss/variables.scss";
+
+.profile-nav-item {
+    padding: 15px;
+    background: #fff;
+    border-radius: 6px;
+    cursor: pointer;
+    color: $red;
+    flex: 1 0 auto;
+    display: flex;
+    align-items: center;
+    transition: .3s;
+    
+    svg{margin-right: 12px;}
+    &:hover {
+        color: #fff;
+        background: $red;
+        svg path{
+            fill: #fff;
+        }
+    }
+    
+}
+.active {
+    color: #fff;
+    background: $red;
+    svg path{
+        fill: #fff;
+    } 
+}

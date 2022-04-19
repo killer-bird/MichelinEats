@@ -1,0 +1,45 @@
+@import "../../assets/scss/variables";
+
+.modal {
+    
+    &__header{
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 30px;
+    }
+    &__close {
+        border: transparent;
+        background: transparent;
+        cursor: pointer;
+    }
+    &__wrapper {
+        background: #fff;
+        width: 450px;
+        max-height: 700px;
+    }
+    &__title{
+        font-weight: $black;
+        font-size: 28px;
+        margin-bottom: 50px;
+        line-height: 33px;
+    }
+
+    &__form{
+        display: flex;
+        flex-direction: column;
+    }
+    &__btn{
+        padding: 24px ;
+    }
+}
+
+@media(max-width: 600px) {
+    .modal {
+        &__wrapper {
+            width: 100%;
+            min-height: 200vh;
+            
+        }
+    }
+}

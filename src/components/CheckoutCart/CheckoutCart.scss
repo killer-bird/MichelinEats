@@ -1,0 +1,27 @@
+@import "../../assets/scss/variables.scss";
+
+
+.checkout-cart {
+    padding: 20px;
+    border-radius: 10px;
+    background: #fff;
+    width: 690px;
+    
+    &__wrapper {
+        padding-top: 25px;
+        position: sticky;
+        top: 0;
+    }
+    &__items {
+        margin-bottom: 20px;
+    }
+    &__final-sum {
+        display: flex;
+        justify-content:  space-between;
+        font-size: 24px;
+        &__right {
+            font-size: 24px;
+            font-weight: $heavy;
+        }
+    }
+}

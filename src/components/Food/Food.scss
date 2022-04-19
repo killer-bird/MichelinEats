@@ -1,0 +1,15 @@
+@import "../../assets/scss/variables.scss";
+
+.food{
+    display: flex;
+    justify-content: space-between;
+    
+}
+@media(max-width: 1300px) {
+    .food {
+        justify-content: center;
+        .sticky__container {
+            display: none;
+        }
+    }
+}

@@ -1,0 +1,126 @@
+@import "../../assets/scss/variables.scss";
+
+.food-page-item {
+    display: flex;
+    gap: 30px;
+    
+    &__img {
+        background: #fff;
+        border-radius: 20px;
+        width: fit-content;
+        img {
+            width: 450px;
+            height: 439px;
+        }
+    }
+    &__right {
+        display: flex;
+        flex-direction: column;
+        max-width: 570px
+    }
+    &__title {
+        font-size: 54px;
+        font-weight: $black;
+        margin-bottom: 30px;
+    }
+
+    &__bottom {
+        display: flex;
+        margin-top: auto;
+        background: #fff;
+        width: 100%;
+        
+        border-radius: 3px;
+        border: 1px solid #EFEFEF;
+    }
+
+    &__weight {
+        width: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-right: 1px solid #EFEFEF;
+        svg {
+            margin-left: 12px; 
+            margin-top: 3px;
+        }
+    }
+    &__price {
+        width: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        background: none;
+        padding: 13px 0;
+        font-size: 16px;
+        font-weight: $black;
+        cursor: pointer;
+        color: #000;
+    }
+    &__icon {
+        margin-right: 12px;
+        position: relative;
+        .cart__counter {
+            right: -5px;
+        } 
+    }
+}
+
+
+@media(max-width:1200px) {
+    .food-page-item {
+        &__title {
+            font-size: 38px;
+        }
+    }
+}
+
+@media (max-width:1024px) {
+    .food-page-item {
+        &__img  img {
+            width: 350px;
+            height: 339px;
+        }
+    }
+}
+
+@media (max-width: 810px) {
+    .food-page-item {
+        &__title {
+            font-size: 32px;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .food-page-item{
+        flex-direction: column;
+    }
+}
+
+@media(max-width: 500px) {
+    .food-page-item {
+        &__title {
+            font-size: 28px;
+        }
+    }
+}
+
+@media (max-width: 375px) {
+    .food-page-item {
+        &__img  img {
+            width: 340px;
+            height: 330px;
+        }
+    }
+}
+
+@media (max-width: 360px) {
+    .food-page-item {
+        &__img  img {
+            width: 300px;
+            height: 290px;
+        }
+    }
+}

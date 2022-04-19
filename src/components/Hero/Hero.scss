@@ -1,0 +1,29 @@
+@import "../../assets/scss/variables";
+
+.hero{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &__title{
+        color: #fff;
+        margin-bottom: 50px;
+    }
+    &__wrapper{
+        background: url("../../assets/img/unsplash_nTZOILVZuOg.jpg") no-repeat ;
+        background-size: cover;    
+        padding: 80px 0 125px;
+    }
+}
+
+@media(max-width: 700px ) {
+    .hero {
+        &__title {
+            width: 305px;
+            margin:  0 0 20px 40px;
+           
+            text-align: center;
+            line-height: 38px;
+        }
+
+    }
+}

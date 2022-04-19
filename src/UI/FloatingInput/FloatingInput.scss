@@ -1,0 +1,22 @@
+.input__field {
+    position: relative;
+    width: 100%;
+    &:focus-within .input__field__label {
+        transform: translate(0, -15px);
+        font-size: 10px;
+    }
+    .--active {
+        transform: translate(0, -15px);
+        font-size: 10px;
+    }
+    &__label {
+        position: absolute;
+        pointer-events: none;
+        color: #818181;
+
+        left: 20px;
+        top: calc(50% - 22px);
+        font-size: 16px;
+        transition: 0.2s ease all;
+    }
+}

@@ -1,0 +1,23 @@
+@import "../../assets/scss/variables.scss";
+
+.bread-crumbs {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 70px;
+    &__category {
+        color:  #818181;
+        margin-right: 20px;
+        margin-bottom: 5px;
+        &:hover {
+            color: #000;
+        }
+    }
+    &__slash {
+        margin-right: 20px;
+    }
+    &__food {
+        
+        color: #000;
+    }
+}
+

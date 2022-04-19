@@ -1,0 +1,64 @@
+@import "../../assets/scss/variables.scss";
+
+.action-page {
+    padding: 70px 0;
+    display: flex;
+    gap: 30px;
+    &__img {
+        border-radius: 10px;
+        // width: min-content;
+        // height: min-content;
+        img {
+            width: 690px;
+            height: 390px;
+            border-radius: 10px;
+            object-fit: contain;
+        }
+    }
+    &__name {
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 1400px) {
+    .action-page {
+        &__img {
+            img{
+                width: 532px;
+                height: 300px;
+            }
+        }
+    }
+}
+
+@media (max-width: 1000px) {
+    .action-page {
+        flex-direction: column;
+        
+        align-items: center;
+        &__img img{
+            margin: 0 auto;
+        }
+    }
+}
+
+@media (max-width: 550px) {
+    .action-page {
+        padding: 30px 0;
+        &__img img{
+           width: 340px;
+           height: 192px;
+           
+        }
+    }
+}
+
+@media (max-width:  360px) {
+    .action-page {
+        &__img img{
+            width: 300px;
+            height: 169px;
+            
+         }
+    }
+}

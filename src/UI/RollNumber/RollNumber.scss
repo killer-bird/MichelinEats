@@ -1,0 +1,11 @@
+@import "../../assets/scss/variables.scss";
+
+.DigitRoll {
+    border: none;
+    min-height: 20px;
+    &__Out{height: 20px;}
+    &__cell {
+        font-size: 16px;
+
+    }
+}

@@ -1,0 +1,56 @@
+@import "../../assets/scss/variables.scss";
+
+.order {
+    padding: 30px;
+    flex: 1 1 450px;
+    background: #fff;
+    border-radius: 8px;
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+    &__title {
+        font-size: 28px;
+        font-weight: $bold;
+        color: #000;
+        margin-bottom: 0;
+    }
+    &__btn {
+        background: transparent;
+        font-weight: $bold;
+        color: $red;
+        border: transparent;
+        cursor: pointer;
+    }
+    &__content {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        &__item {
+            display: flex;
+            justify-content: space-between;
+        }
+        &__key {
+            font-weight: $black;
+            color: #000;
+        }
+        &__value {
+            color: #000;
+        }
+    }
+}
+
+@media(max-width: 365px) {
+    .order{
+        &__header{
+            flex-direction: column;
+        }
+        &__content{
+            &__value{
+                text-align: right;
+            }
+        }
+    }
+}

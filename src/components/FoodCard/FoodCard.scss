@@ -1,0 +1,198 @@
+@import "../../assets/scss/variables";
+
+
+.foodCard{
+    // position: absolute;
+    position: relative;
+    border-radius: 20px;
+    padding: 20px 0;
+    background: #fff;
+    display: flex;
+    height: 485px;
+    flex-direction: column;
+    
+    
+    &__wrapper{
+        position: relative;
+        width: 289px;
+        height: max-content;
+        &:hover {
+            color : #222222;
+        }
+        
+    }
+    &__img{
+        position: relative;
+        min-height: 260px;
+        border-radius: 20px 20px 0 0;
+        margin-bottom: 20px;
+        img{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            max-width: 100%;
+            height: 100%;
+            -o-object-fit: cover;
+            object-fit: cover;
+        }
+    }
+    &__content{
+        padding: 0 20px;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        align-content: space-between
+    }
+    &__title{
+        font-size: 18px;
+        color: #222222;
+        margin-bottom: 15px;
+    }
+    &__composition{
+        color: #222222;
+        height: 34px;
+        overflow: hidden;
+        
+    }
+    &__bottom{
+        width: 100%;
+        border-radius: 3px;
+        background: $bg;
+        display: flex;
+        border: 1px solid #EFEFEF;
+        align-items: center;
+        height: 48px;
+        margin-top: auto;
+        
+    }
+    &__weight{
+        text-align: center;
+        font-size: 14px;
+        border-right: 1px solid #EFEFEF;
+        width: 50%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        svg{margin: 2px 0 0 5px;}
+    }
+    &__price{
+        text-align: center;
+        font-size: 16px;
+        line-height: 19px;
+        width: 50%;
+        display: flex;
+        font-weight: $heavy;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        svg{margin-right: 12px;}
+        .cart__counter {
+            top: -2px;
+            right: 4px;
+        }
+    }
+    
+    
+}
+@media(max-width: 1024px) {
+    .foodCard {
+        &__wrapper {
+            width: calc(30% - 15px)
+        }
+    }
+}
+@media(max-width: 900px) {
+    .foodCard {
+        &__wrapper {
+            width: calc(50% - 15px)
+        }
+    }
+}
+@media(max-width: 500px ) {
+    .foodCard {
+        height: 385px;
+        padding: 20px 0;
+        &__wrapper{
+            width: calc(50% - 10px);
+        }
+        &__img {
+            min-height: 230px;
+            margin-bottom: 10px;
+        }
+        &__title{
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        &__content {
+            padding: 0 10px;
+        }
+        &__composition {
+            font-size: 13px;
+            max-height: 22px;
+            display: none;
+        }
+        &__bottom {
+            height: 34px;
+            .cart__counter {
+                height: 7px;
+                width: 7px;
+                font-size: 4px;
+            }
+        }
+        &__weight {
+            font-size: 10px;
+            svg {
+                width: 5px;
+                height: 3px;
+            }
+        }
+        &__price {
+            font-size: 13px;
+            svg {
+                width: 14px;
+                height: 14px;
+                margin-right: 6px;
+            }
+        }
+    }
+}
+@media(max-width: 425px ) {
+    .foodCard {
+        height: 305px;
+        padding: 10px 0;
+        &__wrapper{
+            width: calc(50% - 10px);
+        }
+        &__img {
+            min-height: 170px;
+        }
+    }
+}
+@media(max-width: 375px ) {
+    .foodCard {
+        height: 275px;
+        &__img {
+            min-height: 130px;
+            
+        }
+        &__weight {
+            padding: 0 8px;
+            width: 54px;
+        }
+        &__price {
+            max-width: 90px;
+            width: 100%;
+        }
+    }
+}
+@media(max-width: 330px ) {
+    .foodCard {
+        &__price {
+            font-size: 11px;
+        }
+    }
+}

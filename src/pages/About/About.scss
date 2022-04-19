@@ -1,0 +1,22 @@
+@import "../../assets/scss/variables";
+
+.about {
+    &__hero {
+        background: url("../../assets/img/about_bg.jpg") no-repeat;
+        background-size: cover;    
+        padding: 200px 0 296px;
+    }
+    &__content{
+        display: flex;
+    }
+    &__title{
+        color: #fff;
+    }
+    &__logo{
+        background: $gradient;
+        padding: 222px 264px;
+    }
+    &__text{
+        padding: 70px 1000px 70px 150px;
+    }
+}

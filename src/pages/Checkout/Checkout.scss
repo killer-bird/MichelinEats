@@ -1,0 +1,32 @@
+@import "../../assets/scss/variables.scss";
+.checkout {
+    display: flex;
+    justify-content: space-between;
+    &__title {
+        font-size: 28px;
+        font-weight: $black;
+    }
+    &__wrapper {
+        padding: 70px 0;
+    }
+    &__auth-btn {
+        background: transparent;
+        border: transparent;
+        cursor: pointer;
+        transition: .3;
+        &:hover{
+            color: $red;
+        }
+    }
+    &__btn {      
+        padding: 30px 0;
+        &__wrapper{
+            margin-top: 70px;
+        }
+    }
+}
+
+
+.checkout__form {
+    max-width: 450px;    
+}

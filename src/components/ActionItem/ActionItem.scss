@@ -1,0 +1,48 @@
+@import "../../assets/scss/variables.scss";
+
+
+.action-item {
+    border-radius: 10px 10px 0 0;
+    background: #fff;
+    height: 100%;
+    max-height: 330px;
+    &__content {
+        padding: 20px;
+    }
+    &__name {
+        font-size: 18px;
+        color: #000;
+        font-weight: $black;
+        margin: 0;
+    }
+}
+
+
+
+@media (max-width: 470px) {
+    .action-item {
+        
+        max-height: 338px;
+        &__img img{
+            width: 340px;
+            height: 192px;
+        }
+        &__name {
+            font-size: 14px;
+        }
+    }
+}
+
+@media (max-width: 360px) {
+    .action-item {
+        
+        max-height: 270px;
+        &__img img{
+            width: 310px;
+            height: 172px;
+        }
+        &__name {
+            font-size: 14px;
+        }
+    }
+}
