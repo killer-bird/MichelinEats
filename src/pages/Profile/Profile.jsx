@@ -11,7 +11,6 @@ const Profile = () => {
         <div className="container">
             <div className="profile">
                 <ProfileSlider />   
-
                 <div className="profile__content">
                     <Outlet />
                 </div>

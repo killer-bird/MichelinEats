@@ -13,9 +13,7 @@ const ProfileAdress = () => {
 
   const dispatch = useDispatch()
 
-  useEffect(() =>{
-    
-  }, [])
+  
 
   const onSubmit = (data) => {
     console.log(data)

@@ -8,18 +8,27 @@
         
         const RequireAuth = () => {
 
-            const { isAuth, loading } = useSelector(state => state.auth)
+            const { isAuth, loading, error } = useSelector(state => state.auth)
     
             const dispatch = useDispatch()
             
+            // useEffect(() => {
+            //     dispatch(getProfile())
+            // },[])
           
               
-            
+            console.log(isAuth, loading, error, "PROFILE CONTAINER")
+            // if (loading) {
+            //     console.log(loading, "LOADING")
+            //     return <h1>LOADING</h1>
+            // } else {
             return (
                 isAuth ? 
                     <Component/> :
                     <Navigate to="/"/>
             )
+            
+            
            
 
             

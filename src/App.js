@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import 'antd/dist/antd.css';
-import { connect } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux"
 import Layout from "./Layout/Layout";
@@ -24,37 +23,29 @@ import ProfilePoints from "./components/ProfilePoints/ProfilePoints";
 import FoodPageContainer from "./pages/FoodPage/FoodPageContainer";
 import Actions from "./pages/Actions/Actions"
 import ActionPage from "./pages/ActionPage/ActionPage"
-import Profile from "./pages/Profile/Profile"
+
 
 
 
 const  App = () =>  {
 
     const dispatch = useDispatch()
-    const {isAuth, error} = useSelector( state => state.auth)
-
+    const { isAuth, error, refresh, loading} = useSelector( state => state.auth)
     
      useEffect(()=>{  
         dispatch(fetchCategories())
         dispatch(fetchFoods())
-        dispatch(fetchActions())
-        dispatch(getProfile())    
+        dispatch(fetchActions())       
+        dispatch(getProfile())  
     },[]);
 
-    useEffect(()=> {
-      console.log(error, isAuth)
-      if(error) {
-        console.log(error, "ERROR")
-        dispatch(renew())
-      }
-    }, [error]);
 
     return (
       <Routes>
           <Route path="/" element={<Layout/>}>
             <Route path="/" element={<Index/>}>
             <Route path="/" element={<Catalog/>} />
-              <Route path="category/:category" element={<Catalog/>} />
+              <Route path="category/:category" element={<Catalog/>} /> 
             </Route>
             <Route path="/food/:id" element={<FoodPageContainer/>}/>
             <Route path="/actions/*" element={<Actions/>}/>
@@ -63,14 +54,15 @@ const  App = () =>  {
             <Route path="/favorites" element={<Favorites/>}/>
             <Route path="/about" element={<About/>}/>
             <Route path="/checkout" element={<Checkout/>}/>
-            <Route path="/profile/*" element={<Profile/>}>
+
+            <Route path="/profile/*" element={ <ProfileContainer getProfile={ dispatch(getProfile)} isAuth={isAuth} refresh={refresh} error={error} loading={loading}/> }>
                 <Route path='index' element={<ProfileIndex/>}/>
                 <Route path='adress' element={<ProfileAdress/>}/>
                 <Route path='orders' element={<ProfileOrders/>}/>
                 <Route path='loyal' element={<ProfileLoyal/>}/>
                 <Route path='balls' element={<ProfilePoints/>}/>
             </Route>
-        </Route>
+          </Route>
           
       </Routes>
     );

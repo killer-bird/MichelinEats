@@ -1,8 +1,6 @@
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import {  useSelector } from 'react-redux'
 import Slider from './Slider'
-import { filterCategories } from '../../redux/actions'
-import useGetCategories from '../../hooks/useGetCategories'
 
 
 const SliderContainer = () => {

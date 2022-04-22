@@ -1,17 +1,10 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation} from "swiper";
-import { useDispatch, useSelector } from "react-redux";
-import { loadCategories } from '../../api/api';
-import { createSelector } from 'reselect';
 import Category from '../Category/Category';
-
-import useGetCategories from '../../hooks/useGetCategories';
 import 'swiper/scss';
 import 'swiper/scss/navigation'
 import "./Slider.scss"
-import useFiltredCategories from '../../hooks/useFiltredCategories';
-import { filterCategories } from '../../redux/actions';
 import {ReactComponent as ArrowLeft} from "../../assets/svg/arrow_left.svg"
 
 

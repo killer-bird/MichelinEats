@@ -1,6 +1,9 @@
 import axios from "axios";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 import { useDispatch } from "react-redux"
+import { apiAuth } from "../utils/authHandler"
+
+
 
 axios.defaults.withCredentials  = true;
 
@@ -34,16 +37,24 @@ export const authPhaseTwo = createAsyncThunk(
 
 export const getProfile = createAsyncThunk(
     "auth/isAuth",
-    async function (_, { rejectWithValue }) {
-        
+    async function (_, { rejectWithValue}) { 
         try {
-            const res = await axios.get("https://zabqer.net/api/v1/users/self", { withCredentials: true })
-            return res
-        } catch(e) {
+            const res = await apiAuth.get('users/self')
+            return res 
+        }  catch (e) {
+            console.log("REDUSER ERROR")
             return rejectWithValue(e.response.data.error)
         }
-        
+            
     }
+    // async function (_, { rejectWithValue }) {      
+    //     try {
+    //         const res = await axios.get("https://zabqer.net/api/v1/users/self", { withCredentials: true })
+    //         return res
+    //     } catch(e) {
+    //         return rejectWithValue(e.response.data.error)
+    //     }       
+    // }
 )
 
 export const logout = createAsyncThunk(
@@ -60,14 +71,11 @@ export const renew = createAsyncThunk(
     "auth/renew",
     async function (_, { rejectWithValue }) {
         try {
-            const res = await axios.post("https://zabqer.net/api/v1/auth/renew",
-            { withCredentials: true }
-            )
+            const res = await axios.post("https://zabqer.net/api/v1/auth/renew", { withCredentials: true })
             return res
-        }catch (e) {
-            console.log(e)
-        }
-        
+        } catch (e) {
+            return rejectWithValue(e)
+        }    
     }
 )
 
@@ -81,6 +89,8 @@ const authSlice = createSlice(
         phoneToken: null,
         loading: false,
         error: null,
+        refresh: null,
+        profile: null
     },
     reducers: {
         authStageOne (state, action) {
@@ -93,9 +103,6 @@ const authSlice = createSlice(
             state.authStage = 0
         },
         setAuth (state, action) {
-            state.isAuth = true
-        },
-        logIn (state, action) {
             state.isAuth = true
         },
         fetchProfile (state, action) {
@@ -114,44 +121,37 @@ const authSlice = createSlice(
         
     },
     extraReducers: {
-        [authPhaseOne.pending]: (state, action) => {
-            console.log("Auth Phase One pending")
-        },
         [authPhaseOne.fulfilled]: (state, action) => {
             state.token = action.payload.data.token
             console.log(action.payload.data.token , "TOKEN!!")
-        },
-        [authPhaseTwo.pending]: (state, action) => {
-            console.log("Auth Phase Two pending")
-        },
-        [authPhaseTwo.fulfilled]: (state, action) => {
-            console.log(action)
         },
         [getProfile.pending]: (state, action) => {
             state.loading = true
         },
         [getProfile.fulfilled]: (state, action) => {
-            console.log("fullfiled GET PROFILE")
+            console.log(action.payload.data)
             state.loading = false
             state.isAuth = true
+            state.profile = {}
+            state.profile["phone"] = action.payload.data.phone
+            state.profile["email"] = action.payload.data.email
+            state.profile["firstname"] = action.payload.data.firstname
+            state.profile["gender"] = action.payload.data.gender
         },        
         [getProfile.rejected]: (state, action) => {
-            console.log("rejected")
             state.error = action.payload
             state.isAuth = false
             state.loading = false    
-            console.log(state.isAuth)
         },
+
         [renew.fulfilled]: (state, action) => {
-            console.log("RENEW")
-            state.isAuth = true
+            state.refresh = true
         },
         [renew.rejected]: (state, action) => {
-            console.log("RENEW")
-            state.isAuth = false
+            state.refresh = false
         },
         [logout.fulfilled]: (state, action) => {
-            console.log(action)
+            
             state.isAuth = false
         }   
     }

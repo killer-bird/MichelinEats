@@ -15,19 +15,9 @@ import ru_RU from "antd/lib/locale/ru_RU";
 const ProfileIndex = () => {
 
   const {register, handleSubmit, control, setValue} = useForm({mode: "onSubmit"})
-  const { isAuth, loading, error } = useSelector(state => state.auth)
+  const { isAuth, loading, error, profile } = useSelector(state => state.auth)
   const dispatch = useDispatch()
 
-  useEffect(()=>{
-    dispatch(getProfile())
-  }, [])
-
-  useEffect(()=>{
-    if (error) {
-      console.log(error, "ERROR")
-      dispatch(renew())
-    }
-  },[error])
 
   const onSubmit = (data) => {
     console.log(data)
@@ -37,16 +27,16 @@ const ProfileIndex = () => {
     <form action="" className="checkout__form" onSubmit={handleSubmit(onSubmit)}>
       <div className="form__section">
       <Controller control={control} name="name"  render={( {field:{onChange, ref} })=>(
-        <FloatingInput ref={ref} placeholder={"Имя"} onChange={onChange}/>
+        <FloatingInput ref={ref} placeholder={"Имя"} onChange={onChange} value={profile?.firstname ? profile?.firstname : null}/>
        )}/>
       <Controller control={control} name="lastName" render={( {field:{onChange, ref}} )=>(
-        <FloatingInput ref={ref} placeholder="Фамилия" onChange={onChange}/>
+        <FloatingInput ref={ref} placeholder="Фамилия" onChange={onChange} value={profile?.lastname ? profile?.lastname : null}/>
       )}/>
        <Controller control={control} name="phone"  render={( {field:{onChange, ref} })=>(
-        <FloatingInput ref={ref} placeholder={"Номер телефона"} onChange={onChange}/>
+        <FloatingInput ref={ref} placeholder={"Номер телефона"} onChange={onChange} value={profile?.phone ? profile?.phone : null}/>
        )}/>
       <Controller control={control} name="email" render={( {field:{onChange, ref}}) =>(
-        <FloatingInput placeholder="E-mail" ref={ref} onChange={onChange}/>
+        <FloatingInput placeholder="E-mail" ref={ref} onChange={onChange} value={profile?.email ? profile?.email : null}/>
       )}/>
         {/* <FloatingInput placeholder="Дата рождения"/> */}
         <Controller control={control} name="bd" render={( {field:{onChange, ref}}) =>(
