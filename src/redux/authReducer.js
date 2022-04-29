@@ -47,20 +47,28 @@ export const getProfile = createAsyncThunk(
         }
             
     }
-    // async function (_, { rejectWithValue }) {      
-    //     try {
-    //         const res = await axios.get("https://zabqer.net/api/v1/users/self", { withCredentials: true })
-    //         return res
-    //     } catch(e) {
-    //         return rejectWithValue(e.response.data.error)
-    //     }       
-    // }
 )
 
+export const editProfile = createAsyncThunk(
+    "auth/editProfile",
+    async function (payload, { rejectWithValue}) {
+        console.log(payload)
+        try {
+            const res = await apiAuth.patch('users/self', {
+                ...payload
+            })
+            return res 
+        }catch (e) {
+            console.log("REDUSER ERROR")
+            return rejectWithValue(e.response.data.error)
+        }
+
+    }
+)
 export const logout = createAsyncThunk(
     "auth/logout",
     async function () {
-        const res = await axios.post("https://zabqer.net/api/v1/auth/logout",
+        const res = await apiAuth.post("https://zabqer.net/api/v1/auth/logout",
             {withCredentials: true}
         )
         return res
@@ -87,7 +95,7 @@ const authSlice = createSlice(
         phoneNumber: 0,
         isAuth: false,
         phoneToken: null,
-        loading: false,
+        loading: null,
         error: null,
         refresh: null,
         profile: null
@@ -105,10 +113,6 @@ const authSlice = createSlice(
         setAuth (state, action) {
             state.isAuth = true
         },
-        fetchProfile (state, action) {
-            console.log(action)
-        },
-        
         logOut (state, action) {
             state.isAuth = false
         },
@@ -150,8 +154,7 @@ const authSlice = createSlice(
         [renew.rejected]: (state, action) => {
             state.refresh = false
         },
-        [logout.fulfilled]: (state, action) => {
-            
+        [logout.fulfilled]: (state, action) => {           
             state.isAuth = false
         }   
     }

@@ -9,12 +9,9 @@ apiAuth.defaults.withCredentials = true;
 
 apiAuth.interceptors.request.use(
     async request => {
-        console.log("Intercepting request")
-        console.log(request)
         return request
     },
     async error => {
-        console.log("ERROR")
         return Promise.reject(error)
     }
 )

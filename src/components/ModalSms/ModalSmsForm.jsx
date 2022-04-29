@@ -17,6 +17,9 @@ const ModalSmsForm = ({token, redirect, close}) => {
         formState: {errors},
         reset, setFocus,  setValue, setError,
         handleSubmit } = useForm()
+
+
+            
     const inputs = ["first", "second", "third", "fourth"]
     
 
